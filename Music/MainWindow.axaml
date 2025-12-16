@@ -1,0 +1,225 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Music"
+        mc:Ignorable="d" d:DesignWidth="900" d:DesignHeight="600"
+        x:Class="Music.MainWindow"
+        x:DataType="local:MainWindow"
+        Title="Music Player" Width="900" Height="600"
+        MinWidth="800" MinHeight="500"
+        Icon="/Assets/logo.ico">
+
+    <Window.Styles>
+        <Style Selector="Button.playControl">
+            <Setter Property="Background" Value="#2196F3"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Padding" Value="15,10"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+        <Style Selector="Button.playControl:pointerover">
+            <Setter Property="Background" Value="#1976D2"/>
+        </Style>
+        <Style Selector="ListBoxItem:selected /template/ ContentPresenter">
+            <Setter Property="Background" Value="#E3F2FD"/>
+        </Style>
+    </Window.Styles>
+
+    <Grid RowDefinitions="Auto,*,Auto,Auto">
+        <!-- Top Title Bar -->
+        <Border Grid.Row="0" Background="#1976D2" Padding="20,15">
+            <StackPanel>
+                <TextBlock Text="&#x1F3B5; Music Player System" 
+                          FontSize="24" 
+                          FontWeight="Bold" 
+                          Foreground="White"/>
+                <TextBlock Text="Simple Music Player - Browse, Play, Favorite" 
+                          FontSize="12" 
+                          Foreground="#E3F2FD"
+                          Margin="0,5,0,0"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Main Content Area -->
+        <Grid Grid.Row="1" ColumnDefinitions="2*,*" Margin="10">
+            <!-- Left: Song List -->
+            <Border Grid.Column="0" 
+                    BorderBrush="#BDBDBD" 
+                    BorderThickness="1" 
+                    CornerRadius="8"
+                    Margin="0,0,5,0">
+                <Grid RowDefinitions="Auto,*">
+                    <!-- List Header -->
+                    <Border Grid.Row="0" 
+                            Background="#F5F5F5" 
+                            Padding="15,10"
+                            CornerRadius="8,8,0,0">
+                        <Grid ColumnDefinitions="50,*,*,*,120">
+                            <TextBlock Grid.Column="0" Text="ID" FontWeight="Bold"/>
+                            <TextBlock Grid.Column="1" Text="Song Name" FontWeight="Bold"/>
+                            <TextBlock Grid.Column="2" Text="Artist" FontWeight="Bold"/>
+                            <TextBlock Grid.Column="3" Text="Album" FontWeight="Bold"/>
+                            <TextBlock Grid.Column="4" Text="Actions" FontWeight="Bold"/>
+                        </Grid>
+                    </Border>
+
+                    <!-- Song List -->
+                    <ListBox Grid.Row="1" 
+                             x:Name="SongListBox"
+                             Background="White"
+                             SelectionMode="Single">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate DataType="local:Song">
+                                <Border Padding="15,10" BorderBrush="#E0E0E0" BorderThickness="0,0,0,1">
+                                    <Grid ColumnDefinitions="50,*,*,*,120">
+                                        <TextBlock Grid.Column="0" Text="{Binding Id}" VerticalAlignment="Center"/>
+                                        <TextBlock Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center" FontWeight="SemiBold"/>
+                                        <TextBlock Grid.Column="2" Text="{Binding Artist}" VerticalAlignment="Center" Foreground="#666"/>
+                                        <TextBlock Grid.Column="3" Text="{Binding Album}" VerticalAlignment="Center" Foreground="#666"/>
+                                        <StackPanel Grid.Column="4" Orientation="Horizontal">
+                                            <Button Content="&#x25B6;" 
+                                                    Click="PlaySongButton_Click"
+                                                    Background="#4CAF50" 
+                                                    Foreground="White"
+                                                    Padding="6,3"
+                                                    Margin="2"
+                                                    CornerRadius="3"
+                                                    FontSize="11"
+                                                    ToolTip.Tip="Play"/>
+                                            <Button Content="&#x2665;" 
+                                                    Click="ToggleFavoriteButton_Click"
+                                                    Background="{Binding IsFavorite, Converter={StaticResource FavoriteColorConverter}}"
+                                                    Foreground="White"
+                                                    Padding="6,3"
+                                                    Margin="2"
+                                                    CornerRadius="3"
+                                                    FontSize="11"
+                                                    ToolTip.Tip="Favorite"/>
+                                            <Button Content="&#x270E;" 
+                                                    Click="EditSongButton_Click"
+                                                    Background="#2196F3" 
+                                                    Foreground="White"
+                                                    Padding="6,3"
+                                                    Margin="2"
+                                                    CornerRadius="3"
+                                                    FontSize="11"
+                                                    ToolTip.Tip="Edit"/>
+                                            <Button Content="&#x2716;" 
+                                                    Click="DeleteSongButton_Click"
+                                                    Background="#F44336" 
+                                                    Foreground="White"
+                                                    Padding="6,3"
+                                                    Margin="2"
+                                                    CornerRadius="3"
+                                                    FontSize="11"
+                                                    ToolTip.Tip="Delete"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </Border>
+
+            <!-- Right: Current Playing Info -->
+            <Border Grid.Column="1" 
+                    BorderBrush="#BDBDBD" 
+                    BorderThickness="1" 
+                    CornerRadius="8"
+                    Margin="5,0,0,0"
+                    Padding="15">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel>
+                        <TextBlock Text="Now Playing" 
+                                  FontSize="18" 
+                                  FontWeight="Bold" 
+                                  Margin="0,0,0,15"/>
+                        
+                        <!-- Album Cover Placeholder -->
+                        <Border Background="#E0E0E0" 
+                                Width="200" 
+                                Height="200" 
+                                CornerRadius="8"
+                                Margin="0,0,0,15">
+                            <TextBlock Text="&#x1F3B5;" 
+                                      FontSize="80" 
+                                      HorizontalAlignment="Center" 
+                                      VerticalAlignment="Center"
+                                      Foreground="#9E9E9E"/>
+                        </Border>
+
+                        <!-- Song Info -->
+                        <StackPanel Spacing="10">
+                            <TextBlock x:Name="CurrentSongName" 
+                                      Text="No song selected" 
+                                      FontSize="16" 
+                                      FontWeight="Bold"
+                                      TextWrapping="Wrap"/>
+                            <TextBlock x:Name="CurrentArtist" 
+                                      Text="Artist: --" 
+                                      Foreground="#666"
+                                      TextWrapping="Wrap"/>
+                            <TextBlock x:Name="CurrentAlbum" 
+                                      Text="Album: --" 
+                                      Foreground="#666"
+                                      TextWrapping="Wrap"/>
+                            <TextBlock x:Name="CurrentExample" 
+                                      Text="Example: --" 
+                                      Foreground="#999"
+                                      FontSize="12"
+                                      TextWrapping="Wrap"
+                                      Margin="0,0,0,10"/>
+                        </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+        </Grid>
+
+        <!-- Play Control Bar -->
+        <Border Grid.Row="2" 
+                Background="#F5F5F5" 
+                BorderBrush="#BDBDBD" 
+                BorderThickness="0,1,0,0"
+                Padding="20,15">
+            <Grid ColumnDefinitions="*,Auto,*">
+                <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
+                    <Button Classes="playControl" Content="&#x23EE; Previous" x:Name="PreviousButton"/>
+                    <Button Classes="playControl" Content="&#x25B6; Play" x:Name="PlayPauseButton" Background="#4CAF50"/>
+                    <Button Classes="playControl" Content="&#x23F8; Pause" x:Name="PauseButton"/>
+                    <Button Classes="playControl" Content="&#x23F9; Stop" x:Name="StopButton" Background="#F44336"/>
+                    <Button Classes="playControl" Content="&#x23ED; Next" x:Name="NextButton"/>
+                </StackPanel>
+
+                <TextBlock Grid.Column="2" 
+                          x:Name="StatusText"
+                          Text="Ready | Total Songs: 0" 
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Right"
+                          Margin="20,0,0,0"
+                          Foreground="#666"/>
+            </Grid>
+        </Border>
+
+        <!-- Bottom Function Bar -->
+        <Border Grid.Row="3" 
+                Background="#FAFAFA" 
+                BorderBrush="#BDBDBD" 
+                BorderThickness="0,1,0,0"
+                Padding="20,10">
+            <StackPanel Orientation="Horizontal" Spacing="10">
+                <Button Content="&#x1F4C2; Browse Audio Files" x:Name="BrowseButton" Padding="10,5" CornerRadius="3"/>
+                <Button Content="&#x2795; Add New Song" x:Name="ManageButton" Padding="10,5" CornerRadius="3"/>
+                <Button Content="&#x2B50; Show Favorites" x:Name="ShowFavoritesButton" Padding="10,5" CornerRadius="3"/>
+                <Button Content="&#x1F4C1; Open Data Folder" x:Name="OpenDataFolderButton" Padding="10,5" CornerRadius="3" Background="#9C27B0" Foreground="White"/>
+                <Button Content="&#x1F504; Reset to Default" x:Name="ResetButton" Padding="10,5" CornerRadius="3" Background="#FF9800" Foreground="White"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+
+    <Window.Resources>
+        <local:FavoriteColorConverter x:Key="FavoriteColorConverter"/>
+    </Window.Resources>
+</Window>

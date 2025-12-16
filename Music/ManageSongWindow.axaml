@@ -1,0 +1,79 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="500"
+        x:Class="Music.ManageSongWindow"
+        Title="Manage Song" Width="600" Height="500"
+        WindowStartupLocation="CenterOwner"
+        Icon="/Assets/logo.ico">
+
+    <Grid RowDefinitions="Auto,*,Auto" Margin="20">
+        <TextBlock Grid.Row="0" 
+                   Text="Add/Edit Song" 
+                   FontSize="20" 
+                   FontWeight="Bold" 
+                   Margin="0,0,0,20"/>
+
+        <StackPanel Grid.Row="1" Spacing="15">
+            <StackPanel>
+                <TextBlock Text="Song ID:" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                <TextBox x:Name="IdTextBox" Watermark="e.g., 01"/>
+            </StackPanel>
+
+            <StackPanel>
+                <TextBlock Text="Song Name:" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                <TextBox x:Name="NameTextBox" Watermark="Enter song name"/>
+            </StackPanel>
+
+            <StackPanel>
+                <TextBlock Text="Artist:" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                <TextBox x:Name="ArtistTextBox" Watermark="Enter artist name"/>
+            </StackPanel>
+
+            <StackPanel>
+                <TextBlock Text="Album:" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                <TextBox x:Name="AlbumTextBox" Watermark="Enter album name"/>
+            </StackPanel>
+
+            <StackPanel>
+                <TextBlock Text="Example/Lyrics:" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                <TextBox x:Name="ExampleTextBox" Watermark="Enter example lyrics"/>
+            </StackPanel>
+
+            <StackPanel>
+                <TextBlock Text="File Path (WAV):" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                <Grid ColumnDefinitions="*,Auto">
+                    <TextBox x:Name="FilePathTextBox" 
+                             Grid.Column="0"
+                             Watermark="Select audio file..."
+                             IsReadOnly="True"/>
+                    <Button Grid.Column="1" 
+                            x:Name="BrowseFileButton"
+                            Content="Browse..."
+                            Margin="5,0,0,0"
+                            Padding="15,5"/>
+                </Grid>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" 
+                    Orientation="Horizontal" 
+                    HorizontalAlignment="Right" 
+                    Spacing="10"
+                    Margin="0,20,0,0">
+            <Button x:Name="SaveButton" 
+                    Content="Save" 
+                    Background="#4CAF50"
+                    Foreground="White"
+                    Padding="30,10"
+                    CornerRadius="5"/>
+            <Button x:Name="CancelButton" 
+                    Content="Cancel" 
+                    Background="#757575"
+                    Foreground="White"
+                    Padding="30,10"
+                    CornerRadius="5"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -4,26 +4,26 @@
 
 一个使用 Avalonia UI 和 .NET 8 构建的简洁优雅的跨平台音乐播放器。
 
-![音乐播放器系统](screenshot.png)
+![音乐播放器系统](demo.png)
 
-## :sparkles: 功能特性
+## ✨ 功能特性
 
-- :musical_note: **音频播放** - 支持多种音频格式（MP3、WAV、M4A、FLAC）
-- :star: **收藏管理** - 标记您喜欢的歌曲以便快速访问
-- :memo: **歌曲库** - 浏览、添加、编辑和删除歌曲
-- :floppy_disk: **数据持久化** - 所有歌曲和收藏自动保存
-- :art: **现代化界面** - 简洁直观的 Fluent 设计风格
-- :file_folder: **文件浏览器** - 从计算机导入音频文件
-- :arrows_counterclockwise: **重置功能** - 随时恢复到默认歌曲列表
+- 🎵 **音频播放** - 支持多种音频格式（MP3、WAV、M4A、FLAC）
+- ⭐ **收藏管理** - 标记您喜欢的歌曲以便快速访问
+- 📝 **歌曲库** - 浏览、添加、编辑和删除歌曲
+- 💾 **数据持久化** - 所有歌曲和收藏自动保存
+- 🎨 **现代化界面** - 简洁直观的 Fluent 设计风格
+- 📂 **文件浏览器** - 从计算机导入音频文件
+- 🔄 **重置功能** - 随时恢复到默认歌曲列表
 
-## :computer: 系统要求
+## 🖥️ 系统要求
 
 - **操作系统**: Windows 10 或更高版本（64 位）
 - **框架**: .NET 8.0 运行时（自包含版本已内置）
 - **内存**: 最少 512 MB RAM
 - **存储空间**: 100 MB 可用空间
 
-## :package: 安装方法
+## 📦 安装方法
 
 ### 方式一：下载发布版本（推荐）
 
@@ -54,7 +54,7 @@ dotnet build -c Release
 dotnet run
 ```
 
-## :rocket: 发布打包
+## 🚀 发布打包
 
 创建独立可执行文件：
 
@@ -68,7 +68,7 @@ dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=
 # 输出文件位于: bin\Release\net8.0\win-x64\publish\
 ```
 
-## :book: 使用说明
+## 📖 使用说明
 
 ### 播放音乐
 
@@ -86,12 +86,12 @@ dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=
 #### 添加歌曲
 
 **方法一：浏览文件**
-1. 点击 **:file_folder: Browse Audio Files**
+1. 点击 **📂 Browse Audio Files**
 2. 选择一个或多个音频文件
 3. 文件将自动添加到您的曲库
 
 **方法二：手动输入**
-1. 点击 **:heavy_plus_sign: Add New Song**
+1. 点击 **➕ Add New Song**
 2. 填写歌曲详细信息：
    - 歌曲名称
    - 歌手
@@ -102,31 +102,31 @@ dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=
 
 #### 编辑歌曲
 
-1. 点击操作列中的 **:pencil2: 编辑** 按钮
+1. 点击操作列中的 **✏️ 编辑** 按钮
 2. 修改歌曲信息
 3. 点击 **保存** 应用更改
 
 #### 删除歌曲
 
-1. 点击操作列中的 **:x: 删除** 按钮
+1. 点击操作列中的 **❌ 删除** 按钮
 2. 歌曲将从您的曲库中移除
 
 ### 收藏功能
 
-- 点击操作列中的 **:heart: 心形图标** 来添加/移除收藏
-- 点击 **:star: Show Favorites** 筛选并查看收藏的歌曲
+- 点击操作列中的 **❤️ 心形图标** 来添加/移除收藏
+- 点击 **⭐ Show Favorites** 筛选并查看收藏的歌曲
 - 再次点击显示所有歌曲
 
 ### 数据管理
 
-- **:file_folder: Open Data Folder** - 打开数据存储文件夹
+- **📁 Open Data Folder** - 打开数据存储文件夹
   - 位置：`%AppData%\MusicPlayer\`
   - 包含：`songs.json` 和 `favorites.json`
 
-- **:arrows_counterclockwise: Reset to Default** - 恢复到默认歌曲列表
-  - :warning: 警告：这将删除所有用户添加的歌曲和收藏
+- **🔄 Reset to Default** - 恢复到默认歌曲列表
+  - ⚠️ 警告：这将删除所有用户添加的歌曲和收藏
 
-## :wrench: 技术栈
+## 🛠️ 技术栈
 
 - **框架**: [.NET 8.0](https://dotnet.microsoft.com/)
 - **UI 框架**: [Avalonia UI 11.3.6](https://avaloniaui.net/)
@@ -134,7 +134,7 @@ dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=
 - **数据序列化**: System.Text.Json
 - **架构模式**: MVVM 模式与代码后置
 
-## :file_folder: 项目结构
+## 📁 项目结构
 
 ```
 Music/
@@ -155,7 +155,7 @@ Music/
 └── Music.csproj                # 项目配置文件
 ```
 
-## :gear: 配置说明
+## ⚙️ 配置说明
 
 ### 默认歌曲
 
@@ -176,7 +176,7 @@ Windows: C:\Users\[用户名]\AppData\Roaming\MusicPlayer\
 - `songs.json` - 您的歌曲库
 - `favorites.json` - 您的收藏列表
 
-## :handshake: 贡献
+## 🤝 贡献
 
 欢迎贡献！请随时提交 Pull Request。
 
@@ -186,22 +186,22 @@ Windows: C:\Users\[用户名]\AppData\Roaming\MusicPlayer\
 4. 推送到分支 (`git push origin feature/AmazingFeature`)
 5. 开启一个 Pull Request
 
-## :memo: 许可证
+## 📝 许可证
 
 本项目采用 MIT 许可证 - 详见 [LICENSE](LICENSE) 文件。
 
-## :bug: 已知问题
+## 🐛 已知问题
 
 - NAudio 仅支持 Windows 平台进行音频播放
 - 首次启动可能稍慢，因为需要解压文件
 
-## :email: 联系方式
+## 📧 联系方式
 
 - **作者**: Your Name
 - **邮箱**: your.email@example.com
 - **GitHub**: [@futurefe414](https://github.com/futurefe414)
 
-## :pray: 致谢
+## 🙏 致谢
 
 - [Avalonia UI](https://avaloniaui.net/) - 跨平台 UI 框架
 - [NAudio](https://github.com/naudio/NAudio) - 音频播放库
@@ -209,4 +209,4 @@ Windows: C:\Users\[用户名]\AppData\Roaming\MusicPlayer\
 
 ---
 
-:star: 如果您觉得这个项目有用，请考虑给它一个星标！star~~
+⭐ 如果您觉得这个项目有用，请考虑给它一个星标！

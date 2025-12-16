@@ -4,26 +4,26 @@
 
 A simple and elegant cross-platform music player built with Avalonia UI and .NET 8.
 
-![Music Player System](screenshot.png)
+![Music Player System](demo.png)
 
-## :sparkles: Features
+## ? Features
 
-- :musical_note: **Audio Playback** - Play multiple audio formats (MP3, WAV, M4A, FLAC)
-- :star: **Favorites Management** - Mark your favorite songs for quick access
-- :memo: **Song Library** - Browse, add, edit, and delete songs
-- :floppy_disk: **Data Persistence** - All your songs and favorites are saved automatically
-- :art: **Modern UI** - Clean and intuitive interface with Fluent design
-- :file_folder: **File Browser** - Import audio files from your computer
-- :arrows_counterclockwise: **Reset Function** - Reset to default song list anytime
+- ?? **Audio Playback** - Play multiple audio formats (MP3, WAV, M4A, FLAC)
+- ? **Favorites Management** - Mark your favorite songs for quick access
+- ?? **Song Library** - Browse, add, edit, and delete songs
+- ?? **Data Persistence** - All your songs and favorites are saved automatically
+- ?? **Modern UI** - Clean and intuitive interface with Fluent design
+- ?? **File Browser** - Import audio files from your computer
+- ?? **Reset Function** - Reset to default song list anytime
 
-## :computer: System Requirements
+## ??? System Requirements
 
 - **Operating System**: Windows 10 or later (64-bit)
 - **Framework**: .NET 8.0 Runtime (included in self-contained release)
 - **Memory**: 512 MB RAM minimum
 - **Storage**: 100 MB free space
 
-## :package: Installation
+## ?? Installation
 
 ### Option 1: Download Release (Recommended)
 
@@ -54,7 +54,7 @@ dotnet build -c Release
 dotnet run
 ```
 
-## :rocket: Publishing
+## ?? Publishing
 
 To create a standalone executable:
 
@@ -68,7 +68,7 @@ dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=
 # Output will be in: bin\Release\net8.0\win-x64\publish\
 ```
 
-## :book: Usage
+## ?? Usage
 
 ### Playing Music
 
@@ -86,12 +86,12 @@ dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=
 #### Adding Songs
 
 **Method 1: Browse Files**
-1. Click **:file_folder: Browse Audio Files**
+1. Click **?? Browse Audio Files**
 2. Select one or multiple audio files
 3. Files will be automatically added to your library
 
 **Method 2: Manual Entry**
-1. Click **:heavy_plus_sign: Add New Song**
+1. Click **? Add New Song**
 2. Fill in the song details:
    - Song Name
    - Artist
@@ -102,31 +102,31 @@ dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=
 
 #### Editing Songs
 
-1. Click the **:pencil2: Edit** button in the Actions column
+1. Click the **?? Edit** button in the Actions column
 2. Modify the song information
 3. Click **Save** to apply changes
 
 #### Deleting Songs
 
-1. Click the **:x: Delete** button in the Actions column
+1. Click the **? Delete** button in the Actions column
 2. The song will be removed from your library
 
 ### Favorites
 
-- Click the **:heart: heart icon** in the Actions column to add/remove favorites
-- Click **:star: Show Favorites** to filter and view only your favorite songs
+- Click the **?? heart icon** in the Actions column to add/remove favorites
+- Click **? Show Favorites** to filter and view only your favorite songs
 - Click again to show all songs
 
 ### Data Management
 
-- **:file_folder: Open Data Folder** - Opens the folder where your data is stored
+- **?? Open Data Folder** - Opens the folder where your data is stored
   - Location: `%AppData%\MusicPlayer\`
   - Contains: `songs.json` and `favorites.json`
 
-- **:arrows_counterclockwise: Reset to Default** - Restores the default song list
-  - :warning: Warning: This will delete all user-added songs and favorites
+- **?? Reset to Default** - Restores the default song list
+  - ?? Warning: This will delete all user-added songs and favorites
 
-## :wrench: Technology Stack
+## ??? Technology Stack
 
 - **Framework**: [.NET 8.0](https://dotnet.microsoft.com/)
 - **UI Framework**: [Avalonia UI 11.3.6](https://avaloniaui.net/)
@@ -134,7 +134,7 @@ dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=
 - **Data Serialization**: System.Text.Json
 - **Architecture**: MVVM pattern with code-behind
 
-## :file_folder: Project Structure
+## ?? Project Structure
 
 ```
 Music/
@@ -155,7 +155,7 @@ Music/
 ©¸©¤©¤ Music.csproj                # Project configuration
 ```
 
-## :gear: Configuration
+## ?? Configuration
 
 ### Default Songs
 
@@ -176,7 +176,7 @@ Files:
 - `songs.json` - Your song library
 - `favorites.json` - Your favorite songs list
 
-## :handshake: Contributing
+## ?? Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
@@ -186,22 +186,22 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## :memo: License
+## ?? License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## :bug: Known Issues
+## ?? Known Issues
 
 - NAudio only supports Windows platform for audio playback
 - First-time startup may be slightly slower due to file extraction
 
-## :email: Contact
+## ?? Contact
 
 - **Author**: Your Name
 - **Email**: your.email@example.com
 - **GitHub**: [@futurefe414](https://github.com/futurefe414)
 
-## :pray: Acknowledgments
+## ?? Acknowledgments
 
 - [Avalonia UI](https://avaloniaui.net/) - Cross-platform UI framework
 - [NAudio](https://github.com/naudio/NAudio) - Audio playback library
@@ -209,4 +209,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-:star: If you find this project useful, please consider giving it a star!
+? If you find this project useful, please consider giving it a star!

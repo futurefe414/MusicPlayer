@@ -209,4 +209,4 @@ Windows: C:\Users\[用户名]\AppData\Roaming\MusicPlayer\
 
 ---
 
-:star: 如果您觉得这个项目有用，请考虑给它一个星标！
+:star: 如果您觉得这个项目有用，请考虑给它一个星标！star~~

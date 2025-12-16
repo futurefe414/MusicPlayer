@@ -1,212 +1,255 @@
-# Music Player System
+﻿# Music Player
 
-[English](README.md) | [����](README_CN.md)
-
-A simple and elegant cross-platform music player built with Avalonia UI and .NET 8.
-
-![Music Player System](demo.png)
-
-## ? Features
-
-- ?? **Audio Playback** - Play multiple audio formats (MP3, WAV, M4A, FLAC)
-- ? **Favorites Management** - Mark your favorite songs for quick access
-- ?? **Song Library** - Browse, add, edit, and delete songs
-- ?? **Data Persistence** - All your songs and favorites are saved automatically
-- ?? **Modern UI** - Clean and intuitive interface with Fluent design
-- ?? **File Browser** - Import audio files from your computer
-- ?? **Reset Function** - Reset to default song list anytime
-
-## ??? System Requirements
-
-- **Operating System**: Windows 10 or later (64-bit)
-- **Framework**: .NET 8.0 Runtime (included in self-contained release)
-- **Memory**: 512 MB RAM minimum
-- **Storage**: 100 MB free space
-
-## ?? Installation
-
-### Option 1: Download Release (Recommended)
-
-1. Download the latest release from the [Releases](https://github.com/futurefe414/MusicPlayer/releases) page
-2. Extract the ZIP file to your preferred location
-3. Run `Music.exe` to start the application
-
-### Option 2: Build from Source
-
-**Prerequisites:**
-- [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
-- Visual Studio 2022 or JetBrains Rider (optional)
-
-**Steps:**
-
-```bash
-# Clone the repository
-git clone https://github.com/futurefe414/MusicPlayer.git
-cd MusicPlayer/Music
-
-# Restore dependencies
-dotnet restore
-
-# Build the project
-dotnet build -c Release
-
-# Run the application
-dotnet run
-```
-
-## ?? Publishing
-
-To create a standalone executable:
-
-```bash
-# Navigate to project directory
-cd Music
-
-# Publish for Windows x64
-dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -p:EnableCompressionInSingleFile=true
-
-# Output will be in: bin\Release\net8.0\win-x64\publish\
-```
-
-## ?? Usage
-
-### Playing Music
-
-1. **Select a song** from the song list by clicking on it
-2. **Click the Play button** (??) or use the play button in the Actions column
-3. Use the control buttons:
-   - ?? **Previous** - Go to the previous song
-   - ?? **Play** - Play or resume playback
-   - ?? **Pause** - Pause the current song
-   - ?? **Stop** - Stop playback
-   - ?? **Next** - Go to the next song
-
-### Managing Your Library
-
-#### Adding Songs
-
-**Method 1: Browse Files**
-1. Click **?? Browse Audio Files**
-2. Select one or multiple audio files
-3. Files will be automatically added to your library
-
-**Method 2: Manual Entry**
-1. Click **? Add New Song**
-2. Fill in the song details:
-   - Song Name
-   - Artist
-   - Album
-   - Example Lyrics (optional)
-   - File Path
-3. Click **Save**
-
-#### Editing Songs
-
-1. Click the **?? Edit** button in the Actions column
-2. Modify the song information
-3. Click **Save** to apply changes
-
-#### Deleting Songs
-
-1. Click the **? Delete** button in the Actions column
-2. The song will be removed from your library
-
-### Favorites
-
-- Click the **?? heart icon** in the Actions column to add/remove favorites
-- Click **? Show Favorites** to filter and view only your favorite songs
-- Click again to show all songs
-
-### Data Management
-
-- **?? Open Data Folder** - Opens the folder where your data is stored
-  - Location: `%AppData%\MusicPlayer\`
-  - Contains: `songs.json` and `favorites.json`
-
-- **?? Reset to Default** - Restores the default song list
-  - ?? Warning: This will delete all user-added songs and favorites
-
-## ??? Technology Stack
-
-- **Framework**: [.NET 8.0](https://dotnet.microsoft.com/)
-- **UI Framework**: [Avalonia UI 11.3.6](https://avaloniaui.net/)
-- **Audio Engine**: [NAudio 2.2.1](https://github.com/naudio/NAudio)
-- **Data Serialization**: System.Text.Json
-- **Architecture**: MVVM pattern with code-behind
-
-## ?? Project Structure
-
-```
-Music/
-������ Assets/                      # Application resources
-��   ������ DefaultSongs/           # Default music files
-��   ������ logo.ico                # Application icon
-������ Services/
-��   ������ AudioPlayerService.cs   # Audio playback logic
-��   ������ MusicDataService.cs     # Data persistence logic
-������ MainWindow.axaml            # Main window UI
-������ MainWindow.axaml.cs         # Main window logic
-������ ManageSongWindow.axaml      # Song management dialog
-������ ManageSongWindow.axaml.cs   # Song management logic
-������ ConfirmDialog.axaml         # Confirmation dialog UI
-������ ConfirmDialog.axaml.cs      # Confirmation dialog logic
-������ App.axaml                   # Application styles
-������ App.axaml.cs                # Application entry point
-������ Music.csproj                # Project configuration
-```
-
-## ?? Configuration
-
-### Default Songs
-
-The application comes with 5 default Chinese songs. You can modify them by:
-
-1. Editing the default songs in `MainWindow.axaml.cs` (line ~52)
-2. Replacing MP3 files in `Assets/DefaultSongs/`
-3. Rebuilding the project
-
-### Data Storage
-
-User data is stored in:
-```
-Windows: C:\Users\[YourUsername]\AppData\Roaming\MusicPlayer\
-```
-
-Files:
-- `songs.json` - Your song library
-- `favorites.json` - Your favorite songs list
-
-## ?? Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## ?? License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## ?? Known Issues
-
-- NAudio only supports Windows platform for audio playback
-- First-time startup may be slightly slower due to file extraction
-
-## ?? Contact
-
-- **Author**: Your Name
-- **Email**: your.email@example.com
-- **GitHub**: [@futurefe414](https://github.com/futurefe414)
-
-## ?? Acknowledgments
-
-- [Avalonia UI](https://avaloniaui.net/) - Cross-platform UI framework
-- [NAudio](https://github.com/naudio/NAudio) - Audio playback library
-- All contributors who have helped improve this project
+[English](#english) | [中文](#中文)
 
 ---
 
-? If you find this project useful, please consider giving it a star!
+## English
+
+A simple and elegant music player built with Avalonia UI framework and .NET 8.
+
+![Music Player Demo](demo.png)
+
+### Features
+
+- 🎵 **Audio Playback**: Play various audio formats (MP3, WAV, M4A, FLAC)
+- ⭐ **Favorites Management**: Mark your favorite songs with a star
+- 📝 **Song Management**: Add, edit, and delete songs from your library
+- 📁 **File Browser**: Import audio files from your computer
+- 💾 **Data Persistence**: Automatically saves your library and favorites
+- 🎨 **Modern UI**: Clean and intuitive user interface with Fluent design
+- 🎛️ **Playback Controls**: Play, pause, stop, previous, and next controls
+- 🔄 **Reset Function**: Reset to default song list with confirmation dialog
+
+### Technology Stack
+
+- **Framework**: Avalonia UI 11.3.6
+- **Runtime**: .NET 8.0
+- **Audio Library**: NAudio 2.2.1
+- **Data Storage**: System.Text.Json 8.0.0
+
+### Project Structure
+
+```
+Music/
+├── Assets/
+│   ├── DefaultSongs/          # Default song files
+│   └── logo.ico               # Application icon
+├── Services/
+│   ├── AudioPlayerService.cs  # Audio playback service
+│   └── MusicDataService.cs    # Data persistence service
+├── MainWindow.axaml           # Main window UI
+├── MainWindow.axaml.cs        # Main window logic
+├── ManageSongWindow.axaml     # Song management window UI
+├── ManageSongWindow.axaml.cs  # Song management logic
+├── ConfirmDialog.axaml        # Confirmation dialog UI
+├── ConfirmDialog.axaml.cs     # Confirmation dialog logic
+├── App.axaml                  # Application resources
+├── App.axaml.cs               # Application entry
+└── Music.csproj               # Project file
+```
+
+### Prerequisites
+
+- [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
+
+### Getting Started
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/futurefe414/MusicPlayer.git
+   cd Music
+   ```
+
+2. **Restore dependencies**
+   ```bash
+   dotnet restore
+   ```
+
+3. **Build the project**
+   ```bash
+   dotnet build
+   ```
+
+4. **Run the application**
+   ```bash
+   dotnet run --project Music/Music.csproj
+   ```
+
+### Usage
+
+#### Playing Music
+1. Select a song from the list
+2. Click the **Play** button or double-click on a song
+3. Use playback controls to pause, stop, or navigate between songs
+
+#### Managing Songs
+- **Add Songs**: Click the **Browse** button to import audio files from your computer
+- **Edit Song Info**: Click the **Edit** button (✏️) next to any song to modify its details
+- **Delete Songs**: Click the **Delete** button (🗑️) to remove a song from the library
+- **Manual Add**: Click the **Manage** button to manually add song information
+
+#### Favorites
+- Click the **Star** icon (⭐) next to any song to mark it as a favorite
+- Click **Show Favorites** to filter and view only your favorite songs
+- Click **Show All Songs** to return to the full library
+
+#### Data Management
+- **Open Data Folder**: Click to view the location where your library data is stored
+- **Reset**: Restore the application to its default state with the original song list
+
+### Data Storage
+
+The application stores data in your system's AppData folder:
+- **Windows**: `%AppData%\MusicPlayer\`
+- **macOS**: `~/Library/Application Support/MusicPlayer/`
+- **Linux**: `~/.config/MusicPlayer/`
+
+Two JSON files are maintained:
+- `songs.json`: Your complete song library
+- `favorites.json`: List of favorited song IDs
+
+### Supported Audio Formats
+
+- MP3 (`.mp3`)
+- WAV (`.wav`)
+- M4A (`.m4a`)
+- FLAC (`.flac`)
+
+### License
+
+This project is open source and available under the MIT License.
+
+### Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+### Repository
+
+[https://github.com/futurefe414/MusicPlayer](https://github.com/futurefe414/MusicPlayer)
+
+---
+
+## 中文
+
+一个基于 Avalonia UI 框架和 .NET 8 构建的简洁优雅的音乐播放器。
+
+![音乐播放器演示](demo.png)
+
+### 功能特性
+
+- 🎵 **音频播放**: 支持多种音频格式播放（MP3、WAV、M4A、FLAC）
+- ⭐ **收藏管理**: 标记您喜爱的歌曲
+- 📝 **歌曲管理**: 添加、编辑和删除歌曲库中的歌曲
+- 📁 **文件浏览**: 从计算机导入音频文件
+- 💾 **数据持久化**: 自动保存您的歌曲库和收藏
+- 🎨 **现代化界面**: 简洁直观的用户界面，采用 Fluent 设计
+- 🎛️ **播放控制**: 播放、暂停、停止、上一首、下一首控制
+- 🔄 **重置功能**: 带确认对话框的重置到默认歌曲列表功能
+
+### 技术栈
+
+- **框架**: Avalonia UI 11.3.6
+- **运行时**: .NET 8.0
+- **音频库**: NAudio 2.2.1
+- **数据存储**: System.Text.Json 8.0.0
+
+### 项目结构
+
+```
+Music/
+├── Assets/
+│   ├── DefaultSongs/          # 默认歌曲文件
+│   └── logo.ico               # 应用程序图标
+├── Services/
+│   ├── AudioPlayerService.cs  # 音频播放服务
+│   └── MusicDataService.cs    # 数据持久化服务
+├── MainWindow.axaml           # 主窗口 UI
+├── MainWindow.axaml.cs        # 主窗口逻辑
+├── ManageSongWindow.axaml     # 歌曲管理窗口 UI
+├── ManageSongWindow.axaml.cs  # 歌曲管理逻辑
+├── ConfirmDialog.axaml        # 确认对话框 UI
+├── ConfirmDialog.axaml.cs     # 确认对话框逻辑
+├── App.axaml                  # 应用程序资源
+├── App.axaml.cs               # 应用程序入口
+└── Music.csproj               # 项目文件
+```
+
+### 环境要求
+
+- [.NET 8.0 SDK](https://dotnet.microsoft.com/zh-cn/download/dotnet/8.0)
+
+### 开始使用
+
+1. **克隆仓库**
+   ```bash
+   git clone https://github.com/futurefe414/MusicPlayer.git
+   cd Music
+   ```
+
+2. **还原依赖**
+   ```bash
+   dotnet restore
+   ```
+
+3. **构建项目**
+   ```bash
+   dotnet build
+   ```
+
+4. **运行应用程序**
+   ```bash
+   dotnet run --project Music/Music.csproj
+   ```
+
+### 使用说明
+
+#### 播放音乐
+1. 从列表中选择一首歌曲
+2. 点击**播放**按钮或双击歌曲
+3. 使用播放控制按钮暂停、停止或切换歌曲
+
+#### 管理歌曲
+- **添加歌曲**: 点击**浏览**按钮从计算机导入音频文件
+- **编辑歌曲信息**: 点击歌曲旁边的**编辑**按钮（✏️）修改歌曲详细信息
+- **删除歌曲**: 点击**删除**按钮（🗑️）从歌曲库中移除歌曲
+- **手动添加**: 点击**管理**按钮手动添加歌曲信息
+
+#### 收藏功能
+- 点击歌曲旁边的**星标**图标（⭐）将其标记为收藏
+- 点击**显示收藏**仅查看您收藏的歌曲
+- 点击**显示全部歌曲**返回完整歌曲库
+
+#### 数据管理
+- **打开数据文件夹**: 点击查看存储歌曲库数据的位置
+- **重置**: 将应用程序恢复到默认状态，使用原始歌曲列表
+
+### 数据存储
+
+应用程序将数据存储在系统的 AppData 文件夹中：
+- **Windows**: `%AppData%\MusicPlayer\`
+- **macOS**: `~/Library/Application Support/MusicPlayer/`
+- **Linux**: `~/.config/MusicPlayer/`
+
+维护两个 JSON 文件：
+- `songs.json`: 完整的歌曲库
+- `favorites.json`: 收藏的歌曲 ID 列表
+
+### 支持的音频格式
+
+- MP3 (`.mp3`)
+- WAV (`.wav`)
+- M4A (`.m4a`)
+- FLAC (`.flac`)
+
+### 许可证
+
+本项目为开源项目，采用 MIT 许可证。
+
+### 贡献
+
+欢迎贡献！请随时提交 Pull Request。
+
+### 代码仓库
+
+[https://github.com/futurefe414/MusicPlayer](https://github.com/futurefe414/MusicPlayer)
